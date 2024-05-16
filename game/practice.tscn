@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://coa5dvf4fbigu"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ftk1t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dj34w"]
+size = Vector3(2.06348, 31.2496, 40.5574)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uayv2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdvsx"]
+size = Vector3(0.867493, 2.07301, 0.835327)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j6q5j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1sjse"]
+
+[sub_resource type="Sky" id="Sky_4aqwy"]
+sky_material = SubResource("ProceduralSkyMaterial_1sjse")
+
+[sub_resource type="Environment" id="Environment_yts4f"]
+background_mode = 2
+sky = SubResource("Sky_4aqwy")
+ambient_light_energy = 16.0
+reflected_light_source = 2
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.00111707, 0.999999, 0, -0.999999, 0.00111707, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.999974, 2.94531e-08, 0.0072605, 2.92202e-08, 1, -8.11047e-06, -0.0072605, 8.11047e-06, 0.999974, 0, 0, 1.42931)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.00002, 1.93741e-08, 0.0058824, -7.98197e-08, 1, -6.57087e-06, -0.00588239, 6.57028e-06, 1.00002, -0.541965, -2.40633, -3.85508)
+shape = SubResource("BoxShape3D_dj34w")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D"]
+transform = Transform3D(1.99991, -0.166061, 0.296999, 0.0110758, 29.9995, -0.0129032, -0.0148461, 0.0109105, 39.9989, -0.574477, -2.32998, -3.60408)
+mesh = SubResource("BoxMesh_uayv2")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.0155677, 0.99988, 0, -0.99988, 0.0155677, 0, 0, 0, 1, -4.06844, -8.36493, 1.52806)
+script = ExtResource("1_ftk1t")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21723, -2.04957, -3.05883)
+shape = SubResource("BoxShape3D_pdvsx")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21971, -2.0238, -3.0587)
+mesh = SubResource("CylinderMesh_j6q5j")
+
+[node name="neck" type="Node3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/neck"]
+transform = Transform3D(-0.999947, -0.0101926, 0, 0.0101926, -0.999947, 0, 0, 0, 1, -6.29555, -2.75117, -6.84301)
+fov = 140.201
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yts4f")
+
+[node name="Node3D" type="Node3D" parent="." groups=["coins"]]
+
+[node name="Node3D2" type="Node3D" parent="." groups=["coins"]]
+
+[node name="Node3D3" type="Node3D" parent="." groups=["coins"]]
