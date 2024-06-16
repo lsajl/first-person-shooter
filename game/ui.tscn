@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnrpmv1bwinb5"]
+
+[ext_resource type="Script" path="res://UI.gd" id="1_7clxe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_le0bn"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7clxe")
+metadata/_edit_lock_ = true
+
+[node name="FPS" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.028
+anchor_bottom = 0.046
+offset_right = 359.744
+offset_bottom = 159.192
+label_settings = SubResource("LabelSettings_le0bn")
+
+[node name="Crosshair" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1156.0
+offset_top = 651.0
+offset_right = 1610.0
+offset_bottom = 912.0
+
+[node name="ColorRect4" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 340.0
+offset_right = 606.0
+offset_bottom = 348.0
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 331.0
+offset_right = 568.0
+offset_bottom = 339.0
+metadata/_edit_group_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 331.0
+offset_right = 606.0
+offset_bottom = 339.0
+metadata/_edit_group_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 302.0
+offset_right = 606.0
+offset_bottom = 310.0
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="healthbar" type="TextureProgressBar" parent="."]
+modulate = Color(0.620128, 0.97136, 0.848883, 1)
+self_modulate = Color(0.681171, 0.967321, 0.807407, 1)
+layout_mode = 0
+offset_left = 2344.0
+offset_top = 197.0
+offset_right = 2676.0
+offset_bottom = 348.0
+value = 10.0

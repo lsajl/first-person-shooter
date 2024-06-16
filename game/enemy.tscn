@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://qvrsymd4tvvf"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_2p8ou"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_88n31"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4spg"]
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iu6t6"]
+
+[node name="Enemy" type="Node3D"]
+script = ExtResource("1_2p8ou")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["enemy"]]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09004, 0)
+mesh = SubResource("BoxMesh_88n31")
+material = SubResource("StandardMaterial3D_t4spg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09395, 0)
+shape = SubResource("BoxShape3D_iu6t6")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhqgmu45hn1gj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2b4vj"]
+[ext_resource type="Texture2D" uid="uid://bex3hqa3uc7m4" path="res://Screen Shot 2024-05-28 at 1.04.44 PM.png" id="1_gfmp1"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2b4vj")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 330.0
+offset_right = 2273.0
+offset_bottom = 806.0
+text = "play"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ScreenShot2024-05-28At1_04_44Pm" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(1427, 879)
+scale = Vector2(6.475, 6.75397)
+texture = ExtResource("1_gfmp1")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

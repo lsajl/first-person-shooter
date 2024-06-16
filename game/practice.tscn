@@ -1,6 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://coa5dvf4fbigu"]
+[gd_scene load_steps=18 format=3 uid="uid://coa5dvf4fbigu"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ftk1t"]
+[ext_resource type="Script" path="res://main.gd" id="1_wjt85"]
+[ext_resource type="PackedScene" uid="uid://bnrpmv1bwinb5" path="res://ui.tscn" id="2_7lkb3"]
+[ext_resource type="Script" path="res://Camera.gd" id="2_sy0py"]
+[ext_resource type="PackedScene" uid="uid://q6yan14vvieo" path="res://ak-74/scene.gltf" id="3_x3685"]
+[ext_resource type="PackedScene" uid="uid://qvrsymd4tvvf" path="res://enemy.tscn" id="5_shyt7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dj34w"]
 size = Vector3(2.06348, 31.2496, 40.5574)
@@ -11,6 +16,47 @@ size = Vector3(2.06348, 31.2496, 40.5574)
 size = Vector3(0.867493, 2.07301, 0.835327)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_j6q5j"]
+
+[sub_resource type="Animation" id="Animation_4qfno"]
+resource_name = "Walk"
+
+[sub_resource type="Animation" id="Animation_1iv8w"]
+resource_name = "reload"
+
+[sub_resource type="Animation" id="Animation_8rv03"]
+resource_name = "shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/neck/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.174533, 0, 0), Vector3(0, 0, 1.74845e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody3D/neck/gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0.174533, 3.14159, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iahap"]
+_data = {
+"Walk": SubResource("Animation_4qfno"),
+"reload": SubResource("Animation_1iv8w"),
+"shoot": SubResource("Animation_8rv03")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1sjse"]
 
@@ -24,10 +70,12 @@ ambient_light_energy = 16.0
 reflected_light_source = 2
 
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(0.00111707, 0.999999, 0, -0.999999, 0.00111707, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_wjt85")
+
+[node name="UI" parent="." instance=ExtResource("2_7lkb3")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(0.999974, 2.94531e-08, 0.0072605, 2.92202e-08, 1, -8.11047e-06, -0.0072605, 8.11047e-06, 0.999974, 0, 0, 1.42931)
+transform = Transform3D(-1.449e-08, 1, -8.11078e-06, -0.999974, -7.31645e-08, -0.0072605, -0.0072605, 8.11047e-06, 0.999974, 0, -1.47359, 1.42931)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -39,7 +87,7 @@ transform = Transform3D(1.99991, -0.166061, 0.296999, 0.0110758, 29.9995, -0.012
 mesh = SubResource("BoxMesh_uayv2")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.0155677, 0.99988, 0, -0.99988, 0.0155677, 0, 0, 0, 1, -4.06844, -8.36493, 1.52806)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06844, 4.87659, 1.52806)
 script = ExtResource("1_ftk1t")
 metadata/_edit_group_ = true
 
@@ -52,16 +100,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21971, -2.0238, -3.0587)
 mesh = SubResource("CylinderMesh_j6q5j")
 
 [node name="neck" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.02798, -3.48293, 0)
+metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/neck"]
-transform = Transform3D(-0.999947, -0.0101926, 0, 0.0101926, -0.999947, 0, 0, 0, 1, -6.29555, -2.75117, -6.84301)
-fov = 140.201
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76044, 2.22183, -2.86738)
+script = ExtResource("2_sy0py")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/neck/Camera3D"]
+root_node = NodePath("../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_iahap")
+}
+
+[node name="gun" parent="CharacterBody3D/neck" instance=ExtResource("3_x3685")]
+transform = Transform3D(-0.05, 0, 7.54979e-09, 0, 0.05, 0, -7.54979e-09, 0, -0.05, 1.74052, 1.15038, -5.72981)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yts4f")
 
-[node name="Node3D" type="Node3D" parent="." groups=["coins"]]
+[node name="Enemy" parent="." instance=ExtResource("5_shyt7")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -10.3247, 0.183569, -10.4672)
 
-[node name="Node3D2" type="Node3D" parent="." groups=["coins"]]
+[node name="Shoot_timer" type="Timer" parent="."]
+wait_time = 0.1
 
-[node name="Node3D3" type="Node3D" parent="." groups=["coins"]]
+[connection signal="enemy_hit" from="CharacterBody3D/neck/Camera3D" to="." method="_on_camera_3d_enemy_hit"]
+[connection signal="enemy_hit" from="CharacterBody3D/neck/Camera3D" to="Enemy" method="_on_camera_3d_enemy_hit"]
+[connection signal="timeout" from="Shoot_timer" to="CharacterBody3D" method="_on_shoot_timer_timeout"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba33at2j047fs"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_o1fq5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifn4x"]
+metallic = 0.89
+emission_enabled = true
+emission = Color(0.692757, 0.57515, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rtsyi"]
+size = Vector3(1, 1, 4.21533)
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_o1fq5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495746, 17.5863, -0.652921)
+size = Vector3(0.333344, 0.253723, 2.63745)
+material = SubResource("StandardMaterial3D_ifn4x")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.38369, 17.5854, -0.569455)
+shape = SubResource("BoxShape3D_rtsyi")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

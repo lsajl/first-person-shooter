@@ -1,0 +1,11 @@
+Model Information:
+* title:	AK-74
+* source:	https://sketchfab.com/3d-models/ak-74-44c6581b852a4a03a0cd509be06f0dd8
+* author:	madridista_9248 (https://sketchfab.com/dimalukomo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "AK-74" (https://sketchfab.com/3d-models/ak-74-44c6581b852a4a03a0cd509be06f0dd8) by madridista_9248 (https://sketchfab.com/dimalukomo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
