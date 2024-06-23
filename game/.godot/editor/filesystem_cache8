@@ -1,25 +1,25 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1718072986
+::res://::1718674018
 area.gd::GDScript::-1::1714946528::0::1::::<>Node3D<>::
 bullet.gd::GDScript::-1::1717750422::0::1::::<>Node3D<>::
-bullet.tscn::PackedScene::2445924376701111956::1718072969::0::1::::<><>::res://bullet.gd
+bullet.tscn::PackedScene::2445924376701111956::1718668868::0::1::::<><>::res://bullet.gd
 Camera.gd::GDScript::-1::1717548779::0::1::::<>Camera3D<>::
-enemy.gd::GDScript::-1::1717033068::0::1::::<>Node3D<>::
-enemy.tscn::PackedScene::1167439043484979691::1718072969::0::1::::<><>::res://enemy.gd
+enemy.gd::GDScript::-1::1718674012::0::1::::<>Node3D<>::
+enemy.tscn::PackedScene::1167439043484979691::1718674012::0::1::::<><>::res://enemy.gd
 global.gd::GDScript::-1::1715117447::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::4522825795086041535::1714946493::1715822094::1::::<><>::
-main.gd::GDScript::-1::1717750500::0::1::::<>Control<>::
-main.tscn::PackedScene::7684000828733233045::1718072969::0::1::::<><>::res://main.gd<>uid://bex3hqa3uc7m4::::res://Screen Shot 2024-05-28 at 1.04.44 PM.png
+main.gd::GDScript::-1::1718668409::0::1::::<>Control<>::
+main.tscn::PackedScene::7684000828733233045::1718668868::0::1::::<><>::res://main.gd<>uid://bex3hqa3uc7m4::::res://Screen Shot 2024-05-28 at 1.04.44 PM.png
 player.gd::GDScript::-1::1717565456::0::1::::<>CharacterBody3D<>::
-practice.tscn::PackedScene::5757313157522096952::1718072969::0::1::::<><>::res://player.gd<>res://main.gd<>uid://bnrpmv1bwinb5::::res://ui.tscn<>res://Camera.gd<>uid://q6yan14vvieo::::res://ak-74/scene.gltf<>uid://qvrsymd4tvvf::::res://enemy.tscn
+practice.tscn::PackedScene::5757313157522096952::1718668868::0::1::::<><>::res://player.gd<>uid://bnrpmv1bwinb5::::res://ui.tscn<>res://Camera.gd<>uid://q6yan14vvieo::::res://ak-74/scene.gltf<>uid://qvrsymd4tvvf::::res://enemy.tscn
 Screen Shot 2024-05-28 at 1.04.44 PM.png::CompressedTexture2D::2716370164616037637::1716858323::1716858323::1::::<><>::
 UI.gd::GDScript::-1::1717565712::0::1::::<>Control<>::
-ui.tscn::PackedScene::3334903400455326132::1718072969::0::1::::<><>::res://UI.gd
-::res://ak-74/::1718249597
+ui.tscn::PackedScene::3334903400455326132::1718668868::0::1::::<><>::res://UI.gd
+::res://ak-74/::1718576539
 download (1).jpeg::CompressedTexture2D::3312065476088029866::1716857817::1718249674::1::::<><>::
 license.txt::TextFile::-1::1716761209::0::1::::<><>::
 scene.gltf::PackedScene::1188475140725758158::1716761209::1716761222::1::::<><>::uid://d4ncn3e1r44e1::::res://ak-74/textures/Grenade_Launcher_baseColor.jpeg<>uid://dqktfjkhtqgrb::::res://ak-74/textures/Grenade_Launcher_metallicRoughness.png<>uid://nc1r61redp30::::res://ak-74/textures/Grenade_Launcher_normal.png<>uid://c7ki5a650t4yd::::res://ak-74/textures/Main_Metal_baseColor.jpeg<>uid://3mv3w4s1ggwm::::res://ak-74/textures/Main_Metal_metallicRoughness.png<>uid://cbe1teonaj2lw::::res://ak-74/textures/Main_Metal_normal.png<>uid://c1yp0jg0m0as1::::res://ak-74/textures/Grip_baseColor.jpeg<>uid://cx6si5rciodbg::::res://ak-74/textures/Grip_metallicRoughness.png<>uid://dc7u26fa5wmck::::res://ak-74/textures/Grip_normal.png<>uid://efq2t1ov314a::::res://ak-74/textures/Wood_baseColor.jpeg<>uid://dwwtfaenso34o::::res://ak-74/textures/Wood_metallicRoughness.png<>uid://dc5sgkd8srv::::res://ak-74/textures/Wood_normal.png<>uid://1p6yasw0brbw::::res://ak-74/textures/material_baseColor.jpeg<>uid://dgcu64v3i3u4v::::res://ak-74/textures/material_metallicRoughness.png<>uid://bsfed1q6ong8n::::res://ak-74/textures/material_normal.png
-::res://ak-74/textures/::1717565747
+::res://ak-74/textures/::1718576542
 Grenade_Launcher_baseColor.jpeg::CompressedTexture2D::9221721554729549902::1716761209::1716761222::1::::<><>::
 Grenade_Launcher_metallicRoughness.png::CompressedTexture2D::8304090367162776555::1716761209::1716761223::1::::<><>::
 Grenade_Launcher_normal.png::CompressedTexture2D::918194392277504901::1716761208::1716761223::1::::<><>::
@@ -35,9 +35,9 @@ material_normal.png::CompressedTexture2D::3660391375052463663::1716761209::17167
 Wood_baseColor.jpeg::CompressedTexture2D::292097990415982130::1716761209::1716761222::1::::<><>::
 Wood_metallicRoughness.png::CompressedTexture2D::8749995480331933832::1716761209::1716761223::1::::<><>::
 Wood_normal.png::CompressedTexture2D::6369096213669911::1716761209::1716761223::1::::<><>::
-::res://ak-74/zombie-warrior/::1718249613
+::res://ak-74/zombie-warrior/::1718576536
 ::res://ak-74/zombie-warrior/source/::1718249613
-::res://ak-74/zombie-warrior/textures/::1718249613
+::res://ak-74/zombie-warrior/textures/::1718576537
 zombie_material_color.png::CompressedTexture2D::8082413030443033771::1718249593::1718249654::1::::<><>::
 zombie_material_gloss.png::CompressedTexture2D::1745723909899228952::1718249593::1718249595::1::::<><>::
 zombie_material_nmap.png::CompressedTexture2D::5627275292010449332::1718249593::1718249596::1::::<><>::

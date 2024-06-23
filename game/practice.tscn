@@ -1,16 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://coa5dvf4fbigu"]
+[gd_scene load_steps=19 format=3 uid="uid://coa5dvf4fbigu"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ftk1t"]
-[ext_resource type="Script" path="res://main.gd" id="1_wjt85"]
+[ext_resource type="Script" path="res://map.gd" id="1_hepn0"]
 [ext_resource type="PackedScene" uid="uid://bnrpmv1bwinb5" path="res://ui.tscn" id="2_7lkb3"]
 [ext_resource type="Script" path="res://Camera.gd" id="2_sy0py"]
 [ext_resource type="PackedScene" uid="uid://q6yan14vvieo" path="res://ak-74/scene.gltf" id="3_x3685"]
 [ext_resource type="PackedScene" uid="uid://qvrsymd4tvvf" path="res://enemy.tscn" id="5_shyt7"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dj34w"]
-size = Vector3(2.06348, 31.2496, 40.5574)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uayv2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pdvsx"]
 size = Vector3(0.867493, 2.07301, 0.835327)
@@ -69,22 +64,19 @@ sky = SubResource("Sky_4aqwy")
 ambient_light_energy = 16.0
 reflected_light_source = 2
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_5fp2y"]
+vertices = PackedVector3Array(-16.8419, 0.49924, -21.6892, -16.8419, -0.000760078, 17.3108, 12.1581, -0.000760078, 17.3108, 12.1581, 0.49924, -21.6892)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dj34w"]
+size = Vector3(2.06348, 31.2496, 40.5574)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uayv2"]
+
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_wjt85")
+script = ExtResource("1_hepn0")
 
 [node name="UI" parent="." instance=ExtResource("2_7lkb3")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(-1.449e-08, 1, -8.11078e-06, -0.999974, -7.31645e-08, -0.0072605, -0.0072605, 8.11047e-06, 0.999974, 0, -1.47359, 1.42931)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1.00002, 1.93741e-08, 0.0058824, -7.98197e-08, 1, -6.57087e-06, -0.00588239, 6.57028e-06, 1.00002, -0.541965, -2.40633, -3.85508)
-shape = SubResource("BoxShape3D_dj34w")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D"]
-transform = Transform3D(1.99991, -0.166061, 0.296999, 0.0110758, 29.9995, -0.0129032, -0.0148461, 0.0109105, 39.9989, -0.574477, -2.32998, -3.60408)
-mesh = SubResource("BoxMesh_uayv2")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06844, 4.87659, 1.52806)
@@ -124,6 +116,22 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -10.3247, 0.183569, -10.4672)
 
 [node name="Shoot_timer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251235, 0)
+navigation_mesh = SubResource("NavigationMesh_5fp2y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(-1.449e-08, 1, -8.11078e-06, -0.999974, -7.31645e-08, -0.0072605, -0.0072605, 8.11047e-06, 0.999974, 0, -1.72483, 1.42931)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1.00002, 1.93741e-08, 0.0058824, -7.98197e-08, 1, -6.57087e-06, -0.00588239, 6.57028e-06, 1.00002, -0.541965, -2.40633, -3.85508)
+shape = SubResource("BoxShape3D_dj34w")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1.99991, -0.166061, 0.296999, 0.0110758, 29.9995, -0.0129032, -0.0148461, 0.0109105, 39.9989, -0.574477, -2.32998, -3.60408)
+mesh = SubResource("BoxMesh_uayv2")
 
 [connection signal="enemy_hit" from="CharacterBody3D/neck/Camera3D" to="." method="_on_camera_3d_enemy_hit"]
 [connection signal="enemy_hit" from="CharacterBody3D/neck/Camera3D" to="Enemy" method="_on_camera_3d_enemy_hit"]

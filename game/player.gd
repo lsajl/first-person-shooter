@@ -20,7 +20,7 @@ func _ready():
 	for coins in coins_group:
 		total_coins += 1
 	total_coins = len(coins_group)
-		
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 func _take_damage():
 	player_health -= 10
 func shoot():

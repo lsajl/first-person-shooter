@@ -1,3 +1,5 @@
+NavigationRegion3D
+NavigationAgent3D
 CollisionShape3D
 Area3D
 TextureProgressBar
@@ -11,4 +13,3 @@ ParallaxBackground
 Button
 CanvasLayer
 Node3D
-AnimationPlayer

@@ -1,7 +1,8 @@
 res://ui.tscn
-res://main.gd
+res://enemy.gd
 res://practice.tscn
 res://enemy.tscn
 res://main.tscn
 res://bullet.tscn
-res://bullet.gd
+res://map.gd
+res://player.gd
